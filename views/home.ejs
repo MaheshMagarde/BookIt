@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK IT</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa fa-fw fa-bars checkbtn"></i>
+        </label>
+        <label class="logo">BOOK IT</label>
+        <ul>
+            <li><a href="/">Read a Book</a></li>
+            <li><a href="/swap">Swap a Book</a></li>
+            <li><a href="/postbook">post a Book</a></li>
+            <li><a href="/newbook">Publish a Book</a></li>
+            <li><a href="#">How it Works</a></li>
+            <li><a class="active" href="#"><i class="fa fa-fw fa-user"></i></a></li>
+        </ul>
+    </nav>
+    <div class="myslider">
+    </div>
+    <div id="booksContainer">
+        <!-- <h1 style="margin-left:45%; font-size: 40px;">Fiction</h1>
+        <br>
+        <br>
+        <div class="book-slider">
+            <div class="slide-track">
+                <div class="books">
+                    <img src="/images/hound of baskerville.jpg" style="width: 180px; height:280px;">
+                </div>
+                <div class="books">
+                    <img src="/images/loose end book.jpg" style="width: 180px; height:280px;">
+                </div>
+                <div class="books">
+                    <img src="/images/missing by adam nicolas.webp" style="width: 180px; height:280px;">
+                </div>
+                <div class="books">
+                    <img src="/images/mysterious affair at styles.avif" style="width: 180px; height:280px;">
+                </div>
+                <div class="books">
+                    <img src="/images/women in white.jpg" style="width: 180px; height:280px;">
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <footer class="footer">
+        <div class="footer-col">
+            <a href="#">
+                <h2>BOOK IT</h2>
+            </a>
+        </div>
+        <div class="footer-col">
+            <a href="#">
+                <h2>Terms & Conditions</h2>
+            </a>
+        </div>
+        <div class="footer-col">
+            <a href="#">
+                <h2>Privacy Policy</h2>
+            </a>
+        </div>
+        <div class="footer-col">
+            <div class="social-links">
+                <a href="#"><i class="fa fa-2x fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-2x fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-2x fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-2x fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    var socket = io()
+</script>
+<script src="/js/home.js"></script>
+
+</html>

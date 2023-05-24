@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.0.279/build/pdf.min.js"></script>
+    <title>PDF view</title>
+</head>
+<style>
+    #myCanvas {
+        border: 1px solid black;
+        margin-left: 25%;
+        margin-right: 25%;
+        height: 100%;
+        width: 40%;
+    }
+</style>
+
+<body>
+    <div class="btn-grp">
+        <button onclick="incrementPage()">+</button>
+        <input type="number" name="" id="num-text" onchange="updatePage()" value=1>
+        <button onclick="decrementPage()">-</button>
+    </div>
+    <div>
+        <canvas id="myCanvas"></canvas>
+    </div>
+</body>
+<script>
+    let totalPage;
+    const updatePage = () => {
+        const elem = document.querySelector('#num-text')
+        if (Number(elem.value) > 0 && Number(elem.value) <= totalPage) {
+            showPage()
+        } else {
+            elem.value = totalPage
+            showPage()
+        }
+    }
+    const incrementPage = () => {
+        const elem = document.querySelector('#num-text')
+        if (Number(elem.value) + 1 < totalPage) {
+            elem.value = Number(elem.value) + 1
+            showPage()
+        }
+    }
+    const decrementPage = () => {
+        const elem = document.querySelector('#num-text')
+        if (Number(elem.value) - 1 > 0) {
+            elem.value = Number(elem.value) - 1
+            showPage()
+        }
+    }
+
+    const fileLocation = location.pathname.split('/')
+    console.log(`/uploadedFiles/${fileLocation}`)
+    const pdf = pdfjsLib.getDocument(`/uploadedFiles/${fileLocation[fileLocation.length - 1]}`).promise
+
+
+    function showPage() {
+
+        pdf.then(doc => {
+            // console.log("pages" + doc._pdfInfo.numPages)
+            totalPage = doc._pdfInfo.numPages
+            //console.log('PDF loaded');
+
+            // Fetch the first page
+            var pageNumber = Number(document.querySelector('#num-text').value);
+            doc.getPage(pageNumber).then(function (page) {
+                // console.log('Page loaded');
+
+                var scale = 1.5;
+                var viewport = page.getViewport({ scale: scale });
+
+                // Prepare canvas using PDF page dimensions
+                var canvas = document.getElementById('myCanvas');
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Render PDF page into canvas context
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+                renderTask.promise.then(function () {
+                    //console.log('Page rendered');
+                });
+            });
+        })
+    }
+    showPage()
+</script>
+
+</html>

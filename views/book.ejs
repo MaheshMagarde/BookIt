@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK IT</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+        background-color: #ede4ff;
+    }
+</style>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa fa-fw fa-bars checkbtn"></i>
+        </label>
+        <label class="logo">BOOK IT</label>
+        <ul>
+            <li><a href="#">Read a Book</a></li>
+            <li><a href="#">Swap a Book</a></li>
+            <li><a href="#">Publish a Book</a></li>
+            <li><a href="#">How it Works</a></li>
+            <li><a class="active" href="#"><i class="fa fa-fw fa-user"></i></a></li>
+        </ul>
+    </nav>
+    <br><br>
+    <h1 style="padding-left: 45%;color: #6368ce;">About The Book</h1>
+    <br><br>
+    <div class="book-intro">
+        <div class="book-image">
+            <img src="/images/mysterious affair at styles.avif" style="width: 200px; height:300px;" id="img">
+        </div>
+        <div class="book-info">
+            <h3 style="color: #6368ce;">Book Name</h3>
+            <h3 id="book_name">The Mysterious Affairs At Styles</h3>
+            <br>
+            <br>
+            <h3 style="color: #6368ce;">Author Name</h3>
+            <h3 id="author">Agatha Christie</h3>
+            <br>
+            <br>
+            <h3 style="color: #6368ce;">Coins Required</h3>
+            <h3 id="coins">500</h3>
+            <br>
+            <button id="read" style="padding:10px;" onclick="viewBook()">READ THIS BOOK</button>
+        </div>
+    </div>
+    <div class="preview">
+        <h1 style="color: #6368ce;">Preview</h1>
+        <p id="description">Agatha Christie’s first novel, The Mysterious Affair at Styles, was the result of a dare
+            from her sister
+            Madge who challenged her to write a story. The story begins when Hastings is sent back to England from the
+            First World War due to injury and is invited to spend his sick leave at the beautiful Styles Court by his
+            old friend John Cavendish. Here, Hastings meets John’s step-mother, Mrs Inglethorp, and her new husband,
+            Alfred. Despite the tranquil surroundings Hastings begins to realise that all is not right. When Mrs
+            Inglethorp is found poisoned, suspicion falls on the family, and another old friend, Hercule Poirot, is
+            invited to investigate.</p>
+    </div>
+</body>
+<script src="/js/book.js"></script>
+
+</html>

@@ -1,0 +1,152 @@
+<% stuff=typeof stuff !=='object' ? {} : stuff %>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/chat.css">
+    </head>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/vanilla-emoji-picker@0.2.4/dist/emojiPicker.min.js
+    "></script>
+    <script type="module">
+        import picmo from 'https://cdn.jsdelivr.net/npm/picmo@5.8.1/+esm'
+    </script>
+
+    <body>
+
+        <input type="hidden" id="activeChat" value="<%= stuff.query.user %>">
+        <div class="container">
+            <div class="leftSide">
+                <!-- header -->
+                <div class="header">
+                    <div class="userimg">
+                        <span class="material-icons cover">
+                            account_circle
+                        </span>
+                    </div>
+                    <ul class="nav_icons">
+                        <li><ion-icon name="chatbox"></ion-icon></li>
+                        <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                    </ul>
+                </div>
+                <!-- search -->
+                <div class="search_chat">
+                    <div>
+                        <input type="text" id="" placeholder="Search or Start New Chat">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </div>
+                </div>
+                <!-- chat list -->
+                <div class="chatlist" id="chatList">
+                    <!-- <div class="block active">
+                    <div class="imgbox">
+                        <span class="material-icons cover">
+                            account_circle
+                        </span>
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>John Doe</h4>
+                            <p class="time">10:45</p>
+                        </div>
+                        <div class="message_p">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, quos.</p>
+                            <b>1</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="block unread">
+                    <div class="imgbox">
+                        <span class="material-icons cover">
+                            account_circle
+                        </span>
+                    </div>
+                    <div class="details">
+                        <div class="listhead">
+                            <h4>John Doe</h4>
+                            <p class="time">10:45</p>
+                        </div>
+                        <div class="message_p">
+                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui, quos.</p>
+                            <b>1</b>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+            </div>
+
+            <div class="rightSide">
+                <div class="header">
+                    <div class="imgText">
+                        <div class="userimg">
+                            <!-- <img src="./img/user.jpg" class="cover"> -->
+                            <span class="material-icons cover">
+                                account_circle
+                            </span>
+                        </div>
+                        <!-- <h4>John Doe<br><span>online</span></h4> -->
+                        <h4 id="person-name"></h4>
+                    </div>
+                    <ul class="nav_icons">
+                        <li><ion-icon name="search-outline"></ion-icon></li>
+                        <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                    </ul>
+                </div>
+                <!-- chat box -->
+                <div class="chatBox" id="chatBox">
+                    <!-- <div class="message my_message">
+                     <p>hi<br><span>12:15</span></p> 
+                </div>
+                <div class="message frnd_message">
+                    <p>hello<br><span>12:15</span></p>
+                </div> -->
+                </div>
+                <!-- chat input -->
+                <div class="chatbox_input">
+                    <!-- <div class="utility-container">
+                        <ul class="utility-group">
+                            <li class="emoji-selector" id="emojiSelector">
+                                <div class="input-container">
+                                    <input id="emojiSearch" type="text" name="" id="" placeholder="Search...">
+                                </div>
+                                <ul id="emojiList" class="emoji-list">
+                                    
+                                </ul>
+                            </li>
+                            <li id="emojiSelectorIcon"><img src="./icons/face-smile-regular.svg" alt=""></li>
+                            <li><img src="./icons/at-solid.svg" alt=""></li>
+                            <li><img src="./icons/font-solid.svg" alt=""></li>
+                        </ul>
+                    </div> -->
+                    <!-- <ion-icon name="happy-outline" onclick="toggleEmoji()"></ion-icon> -->
+                    <ion-icon name="attach-outline"></ion-icon>
+                    <ion-icon name="location-outline"><a href="https://www.google.co.in/maps/search/library+near+me"></a> </ion-icon>
+                    <input type="text" placeholder="Type a message" id="message">
+                    <ion-icon name="send" onclick="sendMessage()"></ion-icon>
+                    <!-- <ion-icon name="mic"></ion-icon> -->
+                </div>
+            </div>
+
+        </div>
+    </body>
+    <script>
+        //var socket = io()
+        console.log('hi')
+        console.log(document.getElementById('activeChat').value);
+        
+
+
+    </script>
+    <script src="/js/chat.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    </html>

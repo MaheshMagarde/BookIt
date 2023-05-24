@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        
+    }
+    .swap-page{
+        display: flex;
+    }
+    .swap-buttons{
+        background-color: blue;
+        width: 20%;
+        padding-top: 3%;
+        padding-left: 3%;
+        height: 100vh;
+    }
+    .swap-frame{
+        background-color: brown;
+        width: 80%;
+        height: 100vh;
+    }
+    button{
+        margin: 10px;
+        padding: 5px;
+        font-size: 20px;
+    }
+    .form{
+        display: flex;
+        margin-left: 20%;
+    }
+    .form-item{
+        margin: 12px 0px;
+    }
+    label{
+        font-size: 20px;
+    }
+    input{
+        padding: 5px;
+        width: 50vw;
+    }
+    #card{
+        margin-bottom: 20px;
+        padding: 20px 0 ;
+        background-color: cadetblue;
+        display: flex;
+    }
+</style>
+<body>
+    <div class="swap-page">
+        <div class="swap-buttons">
+            <div class="button1">
+            <button type="button" onclick="ticketView()">Raise a Ticket</button>
+        </div>
+        <div class="button2">
+            <button onclick="availTicketView()">Available Tickets</button>
+        </div>
+        </div>
+        <div class="swap-frame">
+            <div id="view"></div>
+            <div id="raise-ticket" style="display:none;">
+            <h1 style="margin-top: 10%;margin-left: 20%;">Raise a Ticket</h1>
+            <div class="form">
+                <form action="">
+                    <label>ID</label>
+                    <div class="form-item">
+                    <input type="number">
+                    </div>
+                    <label>Swapper Name</label>
+                    <div class="form-item">
+                    <input type="text">
+                </div>
+                <label>Book Name</label>
+                <div class="form-item">
+                    <input type="text">
+                </div>
+                <label>Book Author</label>
+                <div class="form-item">
+                    <input type="text">
+                </div>
+                <label>Requested Book</label>
+                <div class="form-item">
+                    <input type="text">
+                </div>
+                <button style="margin-top: 5px;margin-left:0; padding: 15px;"> Raise a Ticket</button>
+                </form>
+            </div>
+            </div>
+            <div id="avail-ticket" style="display:none;">
+                <div id="card">
+                    <div class="thumbnail">
+                    <img src="Images/hound of baskerville.jpg" style="width: 180px; height:280px; margin: 0 20px;">
+                </div>
+                <div class="description">
+                    <form action="">
+                        <label>ID</label>
+                    <div class="form-item">
+                        <input type="text">
+                    </div>
+                    <label>ID</label>
+                    <div class="form-item">
+                        <input type="text">
+                    </div>
+                    <label>ID</label>
+                    <div class="form-item">
+                        <input type="text">
+                    </div>
+                    <button style="margin-top: 5px;margin-left:0; padding: 15px;"> Accept Ticket</button>
+                </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let ticket = document.getElementById("avail-ticket").innerHTML;
+        let ticket1 =document.getElementById("raise-ticket").innerHTML;
+        function availTicketView(){
+            document.getElementById("view").innerHTML = ticket;
+        }
+        function ticketView(){
+            document.getElementById("view").innerHTML = ticket1;
+        }
+        ticketView();
+    </script>
+</body>
+</html>

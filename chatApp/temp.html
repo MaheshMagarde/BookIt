@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document2</title>
+</head>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<body>
+    <div class="chatForm">
+        <input type="text" id="msg">
+        <ul class="chat" id="chat">
+
+        </ul>
+    </div>
+    <button onclick="fun()">click me</button>
+</body>
+<script>
+    let chatDiv = document.getElementById("chat")
+    let msg = document.getElementById('msg')
+    var socket = io()
+    // var response=socket.emit('chat',{msg:"hey"})
+    //console.log(response)
+
+    socket.on('updateChat', (data) => {
+        console.log("user entered")
+        let elem = document.createElement('li')
+        elem.innerText = `${data.msg}`
+        chat.appendChild(elem)
+    })
+    function fun() {
+        socket.emit('updateChat', { msg: `${msg.value}` })
+    }
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- server.js
+
+const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+app.get('/', (req, res) => {
+res.sendFile(__dirname + '/index.html');
+});
+
+io.on('connection', (socket) => {
+console.log('connection established');
+socket.on("updateChat",(msg)=>{
+//console.log("hey")
+console.log(msg)
+io.emit('updateChat',msg)
+})
+//console.log(data)
+});
+
+
+
+server.listen(3000, () => {
+console.log('listening on *:3000');
+}); -->
